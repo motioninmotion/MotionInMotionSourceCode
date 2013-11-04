@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    motion-layout (0.0.1)
+    rake (10.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  motion-layout
+  rake
