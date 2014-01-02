@@ -3,7 +3,7 @@ describe "Application 'FMLL'" do
     @app = UIApplication.sharedApplication
   end
 
-  it "has one window" do
-    @app.windows.size.should == 1
+  it "uses a LocationDisplayController as it's root view controller" do
+    @app.keyWindow.rootViewController.is_a?(LocationDisplayController).should == true
   end
 end
