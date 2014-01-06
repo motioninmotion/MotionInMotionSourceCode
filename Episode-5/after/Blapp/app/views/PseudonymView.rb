@@ -26,7 +26,7 @@ class PseudonymView < UIView
     @nameField ||= UITextField.new.tap do |f|
       f.frame = CGRectMake(20, 50, self.frame.size.width - 40, 30)
       f.placeholder = "Enigma"
-      f.text = @pseudonym[:name]
+      f.text = @pseudonym.name
     end
   end
 
@@ -42,7 +42,7 @@ class PseudonymView < UIView
     @bioField ||= UITextView.new.tap do |f|
       f.frame = CGRectMake(0, 130, self.frame.size.width, 100)
       f.font = UIFont.systemFontOfSize(15)
-      f.text = @pseudonym[:bio] || "A very enigmatic writer..."
+      f.text = @pseudonym.bio || "A very enigmatic writer..."
       f.textContainerInset = UIEdgeInsetsMake(0, 20, 0, 20)
       f.textContainer.lineFragmentPadding = 0.0
     end

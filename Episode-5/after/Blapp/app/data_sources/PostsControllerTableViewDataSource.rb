@@ -1,7 +1,7 @@
 module PostsControllerTableViewDataSource
 
   def tableView(tableView, numberOfRowsInSection:section)
-    self.posts.count + 1
+    Post.count + 1
   end
 
   def tableView(tableView, cellForRowAtIndexPath: indexPath)
@@ -18,8 +18,8 @@ module PostsControllerTableViewDataSource
         UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:@reuseIdentifier)
       end
 
-      cell.textLabel.text = self.posts[indexPath.row - 1][:title]
-      cell.detailTextLabel.text = self.posts[indexPath.row - 1][:content]
+      cell.textLabel.text = Post.all[indexPath.row - 1].title
+      cell.detailTextLabel.text = Post.all[indexPath.row - 1].content
       cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
     end
 
@@ -31,7 +31,8 @@ module PostsControllerTableViewDataSource
   end
 
   def tableView(tableView, commitEditingStyle:editingStyle, forRowAtIndexPath:indexPath)
-    self.posts.delete_at(indexPath.row - 1)
+    Post.all[indexPath.row - 1].destroy
+    cdq.save
     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationBottom)
   end
 

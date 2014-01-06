@@ -4,7 +4,7 @@ class PostDetailController < UIViewController
   def initWithPost(post)
     self.init
     self.post = post
-    self.title = post[:title]
+    self.title = post.title
     self
   end
 
@@ -24,7 +24,9 @@ class PostDetailController < UIViewController
     self.navigationItem.setRightBarButtonItem(editButton, animated:true)
     @postView.contentView.resignFirstResponder
     @postView.contentView.editable = false
-    self.post[:content] = @postView.contentView.text
+    self.post.content = @postView.contentView.text
+    self.post.updated_at = Time.now
+    cdq.save
     self.navigationController.viewControllers[0].tableView.reloadData
   end
 

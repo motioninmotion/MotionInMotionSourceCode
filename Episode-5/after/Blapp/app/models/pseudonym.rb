@@ -1,0 +1,3 @@
+class Pseudonym < CDQManagedObject
+
+end

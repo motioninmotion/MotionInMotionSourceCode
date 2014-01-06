@@ -1,5 +1,9 @@
 class AppDelegate
+    include CDQ
+
   def application(application, didFinishLaunchingWithOptions:launchOptions)
+    cdq.setup
+    
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
     @tabController = UITabBarController.new
 

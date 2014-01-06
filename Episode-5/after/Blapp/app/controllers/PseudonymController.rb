@@ -5,7 +5,8 @@ class PseudonymController < UIViewController
     super
     self.title = "Profile"
     self.tabBarItem = UITabBarItem.alloc.initWithTitle("Profile", image:UIImage.imageNamed("Profile"), tag:1)
-    self.pseudonym = {name: "", bio: ""}
+    self.pseudonym = Pseudonym.first || Pseudonym.create
+    cdq.save
     self
   end
 
@@ -25,8 +26,9 @@ class PseudonymController < UIViewController
 
   def save
     @pseudonymView.subviews.each { |v| v.resignFirstResponder }
-    self.pseudonym[:name] = @pseudonymView.nameField.text
-    self.pseudonym[:bio] = @pseudonymView.bioField.text
+    self.pseudonym.name = @pseudonymView.nameField.text
+    self.pseudonym.bio = @pseudonymView.bioField.text
+    cdq.save
     UIAlertView.alloc.initWithTitle("Profile Updated", message:nil, delegate:nil, cancelButtonTitle:"OK", otherButtonTitles:nil).show
   end
 

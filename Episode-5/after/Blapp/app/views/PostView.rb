@@ -21,14 +21,14 @@ class PostView < UIView
       cv.textContainerInset = UIEdgeInsetsMake(20, 20, 20, 20)
       cv.textContainer.lineFragmentPadding = 0.0
       cv.editable = false
-      cv.text = @post[:content]
+      cv.text = @post.content
     end
   end
 
   def authorAreaLabel
     @authorAreaLabel ||= UILabel.new.tap do |aal|
       aal.frame = CGRectMake(20, self.frame.size.height - 150, self.frame.size.width - 40, 30)
-      aal.text = "About #{UIApplication.sharedApplication.windows[0].rootViewController.viewControllers[1].topViewController.pseudonym[:name]}"
+      aal.text = "About #{@post.pseudonym.name}"
       aal.font = UIFont.boldSystemFontOfSize(15)
     end
   end
@@ -37,7 +37,7 @@ class PostView < UIView
     @authorBioView ||= UITextView.new.tap do |abv|
       abv.frame = CGRectMake(0, self.frame.size.height - 120, self.frame.size.width, 100)
       abv.editable = false
-      abv.text = UIApplication.sharedApplication.windows[0].rootViewController.viewControllers[1].topViewController.pseudonym[:bio]
+      abv.text = @post.pseudonym.bio
       abv.textContainer.lineFragmentPadding = 0.0
       abv.textContainerInset = UIEdgeInsetsMake(0, 20, 0, 20)
       abv.backgroundColor = UIColor.clearColor
