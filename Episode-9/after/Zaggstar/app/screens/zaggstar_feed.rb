@@ -32,7 +32,7 @@ class ZaggstarFeed < PM::TableScreen
         {
           title: "Zaggle #{n}",
           subtitle: "Zaggle Content",
-          action: :mopen_zaggle,
+          action: :open_zaggle,
           arguments: { zaggle_id: n }
         }
       end
