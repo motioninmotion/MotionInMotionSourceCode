@@ -12,6 +12,8 @@ class HomeController < UIViewController
   end
 
   def button_pressed(sender)
-    puts "Open Authenticator Here"
+    UIApplication.sharedApplication.openURL(
+      NSURL.URLWithString("login://logmein/random?app_id=123&access_rights=Posts_UsersInfo_Images")
+    )
   end
 end

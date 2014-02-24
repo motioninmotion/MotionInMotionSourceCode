@@ -6,4 +6,14 @@ class AppDelegate
 
     true
   end
+
+  def application(application, openURL:url, sourceApplication:sourceApplication, annotation:annotation)
+    params = Hash[url.query.split(/[&=]/).each_slice(2).to_a]
+
+    puts url.host
+    puts url.path
+    puts params["key"]
+    true
+  end
+
 end

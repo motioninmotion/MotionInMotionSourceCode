@@ -11,4 +11,12 @@ end
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'Authenticator'
+  app.info_plist['CFBundleURLTypes'] = [
+    {
+      'CFBundleURLName' => 'tv.motioninmotion.Authenticator',
+      'CFBundleURLSchemes' => [
+        'login'
+      ]
+    }
+  ]
 end

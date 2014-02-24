@@ -46,6 +46,8 @@ class AuthController < UIViewController
 
   def button_pressed(sender)
     self.presentingViewController.dismissViewControllerAnimated(true, completion:nil)
-    puts "Open the requesting app"
+    UIApplication.sharedApplication.openURL(
+      NSURL.URLWithString("#{self.auth[:return_url_scheme]}://tv.motioninmotion.Authenticator/#{self.auth[:return_url_path]}?key=123")
+    )
   end
 end
