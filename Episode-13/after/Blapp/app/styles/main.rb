@@ -11,6 +11,7 @@ Teacup::Stylesheet.new :main do
 
     # left: 0, top: 0, width: '100%', height: '100% - 150',
   style :content_view,
+    font: UIFont.preferredFontForTextStyle(UIFontTextStyleBody),
     textContainerInset: UIEdgeInsetsMake(20, 20, 20, 20),
     editable: false,
     textContainer: {
@@ -25,7 +26,7 @@ Teacup::Stylesheet.new :main do
 
     # left: 20, top: '100% - 150', width: '100% - 40', height: 30,
   style :author_label,
-    font: :bold.uifont(15),
+    font: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline),
     constraints: [
       constrain_left(20),
       constrain(:top).equals(:content_view, :bottom),
@@ -35,6 +36,7 @@ Teacup::Stylesheet.new :main do
 
     # left: 0, top: '100% - 120', width: '100%', height: 100,
   style :author_bio,
+    font: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1),
     editable: false,
     textContainerInset: UIEdgeInsetsMake(0, 20, 0, 20),
     background: :clear,

@@ -11,6 +11,7 @@ module PostsControllerTableViewDataSource
       end
 
       cell.textLabel.text = "Create a new post"
+      cell.textLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
     else
       @reuseIdentifier ||= "PostCell"
 
@@ -19,7 +20,9 @@ module PostsControllerTableViewDataSource
       end
 
       cell.textLabel.text = Post.all[indexPath.row - 1].title
+      cell.textLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
       cell.detailTextLabel.text = Post.all[indexPath.row - 1].content
+      cell.detailTextLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
       cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton
     end
 

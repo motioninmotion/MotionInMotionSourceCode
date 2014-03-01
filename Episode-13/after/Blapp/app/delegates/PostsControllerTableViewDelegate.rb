@@ -20,4 +20,9 @@ module PostsControllerTableViewDelegate
     alert.show
   end
 
+  def tableView(tableView, heightForRowAtIndexPath:indexPath)
+    ("Reference Text".sizeWithFont(UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)).height * 1.5) +
+    ("Reference Text".sizeWithFont(UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)).height * 1.5)
+  end
+
 end

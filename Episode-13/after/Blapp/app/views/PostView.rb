@@ -25,6 +25,17 @@ class PostView < UIView
 
     apply_constraints
 
+    NSNotificationCenter.defaultCenter.addObserver(self,
+                                          selector:'font_changed:',
+                                              name:UIContentSizeCategoryDidChangeNotification,
+                                            object:nil)
+
     self
+  end
+
+  def font_changed(notfication)
+    self.contentView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+    self.authorAreaLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
+    self.authorBioView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
   end
 end

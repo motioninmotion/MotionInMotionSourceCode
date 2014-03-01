@@ -10,4 +10,17 @@ class PostsController < UITableViewController
     self
   end
 
+  def viewDidLoad
+    super
+
+    NSNotificationCenter.defaultCenter.addObserver(self,
+                                          selector:'font_changed:',
+                                              name:UIContentSizeCategoryDidChangeNotification,
+                                            object:nil)
+  end
+
+  def font_changed(notification)
+    self.tableView.reloadData
+  end
+
 end
