@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="0001 initial" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+  <entity name="Pseudonym" syncable="YES" representedClassName="Pseudonym">
+    <attribute optional="YES" syncable="YES" attributeType="String" name="name"/>
+    <attribute optional="YES" syncable="YES" attributeType="String" name="bio"/>
+    <relationship optional="YES" deletionRule="Nullify" syncable="YES" name="posts" inverseEntity="Post" destinationEntity="Post" inverseName="pseudonym" toMany="YES"/>
+  </entity>
+  <entity name="Post" syncable="YES" representedClassName="Post">
+    <attribute optional="YES" syncable="YES" attributeType="String" name="title"/>
+    <attribute optional="YES" syncable="YES" attributeType="String" name="content"/>
+    <attribute optional="YES" syncable="YES" attributeType="Date" name="created_at"/>
+    <attribute optional="YES" syncable="YES" attributeType="Date" name="updated_at"/>
+    <relationship optional="YES" deletionRule="Nullify" syncable="YES" name="pseudonym" inverseEntity="Pseudonym" destinationEntity="Pseudonym" inverseName="posts" maxCount="1"/>
+  </entity>
+</model>
