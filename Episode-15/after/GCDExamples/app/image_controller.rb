@@ -22,5 +22,20 @@ class ImageController < UIViewController
 
   def viewDidAppear(animated)
     super
+
+    urls = ImageList.sharedInstance.images
+
+    q = Dispatch::Queue.new('tv.motioninmotion.ImageLoading')
+
+    q.async do
+      Dispatch::Queue.concurrent(:default).apply(urls.count) do |index|
+        image_data = NSData.dataWithContentsOfURL(NSURL.URLWithString(urls[index]))
+        image = UIImage.imageWithData(image_data)
+
+        Dispatch::Queue.main.sync do
+          self.view.subviews[index].image = image
+        end
+      end
+    end
   end
 end
