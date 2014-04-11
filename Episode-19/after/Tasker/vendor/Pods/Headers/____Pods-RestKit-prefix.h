@@ -7,16 +7,13 @@
     #import <CoreData/CoreData.h>
 #endif
 
-
 #ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
     #import <CoreData/CoreData.h>
 #endif
 
-
 #ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
     #import <CoreData/CoreData.h>
 #endif
-
 
 #import <Availability.h>
 
@@ -32,13 +29,10 @@
   #import <Security/Security.h>
 #endif
 
-
 #ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
     #import <CoreData/CoreData.h>
 #endif
 
-
 #ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
     #import <CoreData/CoreData.h>
 #endif
-

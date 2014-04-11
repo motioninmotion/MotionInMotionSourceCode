@@ -52,11 +52,7 @@ class TaskListController < UITableViewController
 
     cell.configure({
       name: fetch_controller.objectAtIndexPath(index_path).name,
-      due_at: NSDateFormatter.localizedStringFromDate(
-        fetch_controller.objectAtIndexPath(index_path).due_at,
-        dateStyle: NSDateFormatterShortStyle,
-        timeStyle: NSDateFormatterShortStyle
-      ),
+      due_at: fetch_controller.objectAtIndexPath(index_path).due_at,
       has_note: fetch_controller.objectAtIndexPath(index_path).note != "",
       complete: fetch_controller.objectAtIndexPath(index_path).complete
     })
@@ -92,11 +88,7 @@ class TaskListController < UITableViewController
 
     content.configure({
       name: fetch_controller.objectAtIndexPath(index_path).name,
-      due_at: NSDateFormatter.localizedStringFromDate(
-        fetch_controller.objectAtIndexPath(index_path).due_at,
-        dateStyle: NSDateFormatterShortStyle,
-        timeStyle: NSDateFormatterShortStyle
-      ),
+      due_at: fetch_controller.objectAtIndexPath(index_path).due_at,
       has_note: fetch_controller.objectAtIndexPath(index_path).note != "",
       complete: fetch_controller.objectAtIndexPath(index_path).complete
     })

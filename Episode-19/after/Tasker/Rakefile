@@ -17,6 +17,7 @@ Motion::Project::App.setup do |app|
   app.pods do
     pod 'RestKit'
     pod 'SVProgressHUD'
+    pod 'MHPrettyDate'
   end
 end
 task :"build:simulator" => :"schema:build"

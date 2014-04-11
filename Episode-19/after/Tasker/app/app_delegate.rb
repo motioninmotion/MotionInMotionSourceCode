@@ -1,6 +1,8 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
 
+    Demo.run_demo
+
     RemoteManager.setup
 
     UINavigationBar.appearance.tap do |o|

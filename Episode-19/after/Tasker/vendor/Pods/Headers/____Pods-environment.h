@@ -18,6 +18,12 @@
 #define COCOAPODS_VERSION_MINOR_ISO8601DateFormatterValueTransformer 5
 #define COCOAPODS_VERSION_PATCH_ISO8601DateFormatterValueTransformer 0
 
+// MHPrettyDate
+#define COCOAPODS_POD_AVAILABLE_MHPrettyDate
+#define COCOAPODS_VERSION_MAJOR_MHPrettyDate 1
+#define COCOAPODS_VERSION_MINOR_MHPrettyDate 1
+#define COCOAPODS_VERSION_PATCH_MHPrettyDate 1
+
 // RKValueTransformers
 #define COCOAPODS_POD_AVAILABLE_RKValueTransformers
 #define COCOAPODS_VERSION_MAJOR_RKValueTransformers 1
