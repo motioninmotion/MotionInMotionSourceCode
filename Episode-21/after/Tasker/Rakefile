@@ -18,6 +18,7 @@ Motion::Project::App.setup do |app|
     pod 'RestKit'
     pod 'SVProgressHUD'
     pod 'MHPrettyDate'
+    pod 'TPKeyboardAvoiding'
   end
 end
 task :"build:simulator" => :"schema:build"

@@ -66,6 +66,7 @@
 <enum name='COCOAPODS_VERSION_MAJOR_RestKit_Support' value='0'/>
 <enum name='COCOAPODS_VERSION_MAJOR_SOCKit' value='1'/>
 <enum name='COCOAPODS_VERSION_MAJOR_SVProgressHUD' value='1'/>
+<enum name='COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding' value='1'/>
 <enum name='COCOAPODS_VERSION_MAJOR_TransitionKit' value='2'/>
 <enum name='COCOAPODS_VERSION_MINOR_AFNetworking' value='3'/>
 <enum name='COCOAPODS_VERSION_MINOR_ISO8601DateFormatterValueTransformer' value='5'/>
@@ -79,8 +80,9 @@
 <enum name='COCOAPODS_VERSION_MINOR_RestKit_Support' value='22'/>
 <enum name='COCOAPODS_VERSION_MINOR_SOCKit' value='1'/>
 <enum name='COCOAPODS_VERSION_MINOR_SVProgressHUD' value='0'/>
+<enum name='COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding' value='2'/>
 <enum name='COCOAPODS_VERSION_MINOR_TransitionKit' value='0'/>
-<enum name='COCOAPODS_VERSION_PATCH_AFNetworking' value='3'/>
+<enum name='COCOAPODS_VERSION_PATCH_AFNetworking' value='4'/>
 <enum name='COCOAPODS_VERSION_PATCH_ISO8601DateFormatterValueTransformer' value='0'/>
 <enum name='COCOAPODS_VERSION_PATCH_MHPrettyDate' value='1'/>
 <enum name='COCOAPODS_VERSION_PATCH_RKValueTransformers' value='1'/>
@@ -92,6 +94,7 @@
 <enum name='COCOAPODS_VERSION_PATCH_RestKit_Support' value='0'/>
 <enum name='COCOAPODS_VERSION_PATCH_SOCKit' value='0'/>
 <enum name='COCOAPODS_VERSION_PATCH_SVProgressHUD' value='0'/>
+<enum name='COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding' value='3'/>
 <enum name='COCOAPODS_VERSION_PATCH_TransitionKit' value='0'/>
 <enum name='MHPrettyDateFormatNoTime' value='1'/>
 <enum name='MHPrettyDateFormatTodayTimeOnly' value='2'/>
@@ -4111,6 +4114,33 @@
 <retval declared_type='NSDictionary*' type='@'/>
 </method>
 </class>
+<class name='TPKeyboardAvoidingCollectionView'>
+<method selector='focusNextTextField'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='scrollToActiveTextField'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TPKeyboardAvoidingScrollView'>
+<method selector='contentSizeToFit'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='focusNextTextField'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='scrollToActiveTextField'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='TPKeyboardAvoidingTableView'>
+<method selector='focusNextTextField'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='scrollToActiveTextField'>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
 <class name='UIImageView'>
 <method selector='cancelImageRequestOperation'>
 <retval declared_type='void' type='v'/>
@@ -4139,6 +4169,39 @@
 <arg declared_type='NSError*' type='@'/>
 <retval declared_type='void' type='v'/>
 </arg>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='UIScrollView'>
+<method selector='TPKeyboardAvoiding_assignTextDelegateForViewsBeneathView:'>
+<arg declared_type='UIView*' index='0' name='view' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames'>
+<retval declared_type='CGSize' type='{CGSize=ff}' type64='{CGSize=dd}'/>
+</method>
+<method selector='TPKeyboardAvoiding_findFirstResponderBeneathView:'>
+<arg declared_type='UIView*' index='0' name='view' type='@'/>
+<retval declared_type='UIView*' type='@'/>
+</method>
+<method selector='TPKeyboardAvoiding_focusNextTextField'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='TPKeyboardAvoiding_keyboardWillHide:'>
+<arg declared_type='NSNotification*' index='0' name='notification' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='TPKeyboardAvoiding_keyboardWillShow:'>
+<arg declared_type='NSNotification*' index='0' name='notification' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='TPKeyboardAvoiding_scrollToActiveTextField'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='TPKeyboardAvoiding_updateContentInset'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='TPKeyboardAvoiding_updateFromContentSizeChange'>
 <retval declared_type='void' type='v'/>
 </method>
 </class>

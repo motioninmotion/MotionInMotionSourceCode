@@ -4,3 +4,4 @@ gem 'rake'
 # Add your dependencies here:
 gem 'cdq'
 gem 'motion-cocoapods'
+gem 'MIMInputToolbar'

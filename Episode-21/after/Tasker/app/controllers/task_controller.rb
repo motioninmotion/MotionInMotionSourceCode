@@ -12,7 +12,7 @@ class TaskController < UIViewController
       self.title = self.task.name
       self.view.name_field.text = self.task.name
       self.view.note_field.text = self.task.note
-      self.view.date_picker.date = self.task.due_at
+      self.view.date_field.date = self.task.due_at
     else
       self.title = 'Add Task'
       self.navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
@@ -20,7 +20,6 @@ class TaskController < UIViewController
         target:self,
         action:'done:'
       )
-      self.view.date_picker.date = Time.now + (60 * 30)
     end
   end
 
@@ -42,13 +41,13 @@ class TaskController < UIViewController
         self.task,
         name: self.view.name_field.text,
         note: self.view.note_field.text,
-        due_at: self.view.date_picker.date
+        due_at: self.view.date_field.date
       ).run
     else
       AddTaskCommand.new(
         name: self.view.name_field.text,
         note: self.view.note_field.text,
-        due_at: self.view.date_picker.date
+        due_at: self.view.date_field.date
       ).run
     end
   end

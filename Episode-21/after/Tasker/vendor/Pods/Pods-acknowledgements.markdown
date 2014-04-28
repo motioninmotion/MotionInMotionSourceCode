@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## AFNetworking
 
-Copyright (c) 2011 Gowalla (http://gowalla.com/)
+Copyright (c) 2013-2014 AFNetworking (http://afnetworking.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -877,6 +877,29 @@ OTHER DEALINGS IN THE SOFTWARE.
 A different license may apply to other ressources included in this package, 
 including Joseph Wain's Glyphish Icons. Please consult their 
 respective headers for the terms of their individual licenses.
+
+## TPKeyboardAvoiding
+
+Copyright (c) 2013 Michael Tyson
+
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+
+2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+3. This notice may not be removed or altered from any source
+   distribution.
 
 ## TransitionKit
 

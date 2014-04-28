@@ -6,15 +6,6 @@
 #ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
     #import <CoreData/CoreData.h>
 #endif
-
-#ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
-    #import <CoreData/CoreData.h>
-#endif
-
-#ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
-    #import <CoreData/CoreData.h>
-#endif
-
 #import <Availability.h>
 
 #define _AFNETWORKING_PIN_SSL_CERTIFICATES_
@@ -27,12 +18,4 @@
   #import <SystemConfiguration/SystemConfiguration.h>
   #import <CoreServices/CoreServices.h>
   #import <Security/Security.h>
-#endif
-
-#ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
-    #import <CoreData/CoreData.h>
-#endif
-
-#ifdef COCOAPODS_POD_AVAILABLE_RestKit_CoreData
-    #import <CoreData/CoreData.h>
 #endif
