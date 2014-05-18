@@ -1,0 +1,1285 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<struct name='PLCrashReportFileHeader' type='{PLCrashReportFileHeader=&quot;magic&quot;[7c]&quot;version&quot;C&quot;data&quot;^C}'>
+<field const='true' declared_type='char*' name='magic' type='[7c]'/>
+<field const='true' declared_type='uint8_t' name='version' type='C'/>
+<field const='true' declared_type='uint8_t*' name='data' type='^C'/>
+</struct>
+<struct name='PLCrashReporterCallbacks' type='{PLCrashReporterCallbacks=&quot;version&quot;S&quot;context&quot;^v&quot;handleSignal&quot;^?}'>
+<field declared_type='uint16_t' name='version' type='S'/>
+<field declared_type='void*' name='context' type='^v'/>
+<field declared_type='PLCrashReporterPostCrashSignalCallback' function_pointer='true' name='handleSignal' type='^?'>
+<arg declared_type='siginfo_t*' type='^{__siginfo=iiiiIi^v(sigval=i^v)l[7L]}' type64='^{__siginfo=iiiiIi^v(sigval=i^v)q[7Q]}'/>
+<arg declared_type='ucontext_t*' type='^{__darwin_ucontext=iI{__darwin_sigaltstack=^vIi}^{__darwin_ucontext}I^{__darwin_mcontext32}}' type64='^{__darwin_ucontext=iI{__darwin_sigaltstack=^vQi}^{__darwin_ucontext}Q^{__darwin_mcontext64}}'/>
+<arg declared_type='void*' type='^v'/>
+<retval declared_type='void' type='v'/>
+</field>
+</struct>
+<opaque name='_PLCrashReportDecoder' type='^{_PLCrashReportDecoder=}'/>
+<constant declared_type='PLCrashReportArchitecture' name='BITPLCrashReportHostArchitecture' type='i'/>
+<constant declared_type='PLCrashReportOperatingSystem' name='BITPLCrashReportHostOperatingSystem' type='i'/>
+<constant declared_type='NSString*' name='BITPLCrashReporterErrorDomain' type='@'/>
+<constant declared_type='NSString*' name='BITPLCrashReporterException' type='@'/>
+<constant const='true' declared_type='NSString*' name='kBITAuthenticatorErrorDomain' type='@'/>
+<constant const='true' declared_type='NSString*' name='kBITCrashErrorDomain' type='@'/>
+<constant const='true' declared_type='NSString*' name='kBITFeedbackErrorDomain' type='@'/>
+<constant const='true' declared_type='NSString*' name='kBITHockeyErrorDomain' type='@'/>
+<constant const='true' declared_type='NSString*' name='kBITUpdateErrorDomain' type='@'/>
+<string_constant name='BITHockeyFeedbackMessagesLoadingFinished' nsstring='true' value='BITHockeyFeedbackMessagesLoadingFinished'/>
+<string_constant name='BITHockeyFeedbackMessagesLoadingStarted' nsstring='true' value='BITHockeyFeedbackMessagesLoadingStarted'/>
+<string_constant name='BITHockeyNetworkDidBecomeReachableNotification' nsstring='true' value='BITHockeyNetworkDidBecomeReachable'/>
+<string_constant name='PLCRASH_REPORT_FILE_MAGIC' value='plcrash'/>
+<enum name='BITAuthenticatorAPIServerReturnedInvalidResponse' value='2'/>
+<enum name='BITAuthenticatorAppRestrictionEnforcementOnAppActive' value='1'/>
+<enum name='BITAuthenticatorAppRestrictionEnforcementOnFirstLaunch' value='0'/>
+<enum name='BITAuthenticatorAuthorizationSecretMissing' value='5'/>
+<enum name='BITAuthenticatorErrorUnknown' value='0'/>
+<enum name='BITAuthenticatorIdentificationTypeAnonymous' value='0'/>
+<enum name='BITAuthenticatorIdentificationTypeDevice' value='3'/>
+<enum name='BITAuthenticatorIdentificationTypeHockeyAppEmail' value='1'/>
+<enum name='BITAuthenticatorIdentificationTypeHockeyAppUser' value='2'/>
+<enum name='BITAuthenticatorIdentificationTypeWebAuth' value='4'/>
+<enum name='BITAuthenticatorNetworkError' value='1'/>
+<enum name='BITAuthenticatorNotAuthorized' value='3'/>
+<enum name='BITAuthenticatorNotIdentified' value='6'/>
+<enum name='BITAuthenticatorUnknownApplicationID' value='4'/>
+<enum name='BITCrashAPIAppVersionRejected' value='1'/>
+<enum name='BITCrashAPIErrorWithStatusCode' value='3'/>
+<enum name='BITCrashAPIReceivedEmptyResponse' value='2'/>
+<enum name='BITCrashErrorUnknown' value='0'/>
+<enum name='BITCrashManagerStatusAlwaysAsk' value='1'/>
+<enum name='BITCrashManagerStatusAutoSend' value='2'/>
+<enum name='BITCrashManagerStatusDisabled' value='0'/>
+<enum name='BITFeedbackAPIClientAuthorizationMissingSecret' value='4'/>
+<enum name='BITFeedbackAPIClientCannotCreateConnection' value='5'/>
+<enum name='BITFeedbackAPIServerReturnedEmptyResponse' value='3'/>
+<enum name='BITFeedbackAPIServerReturnedInvalidData' value='2'/>
+<enum name='BITFeedbackAPIServerReturnedInvalidStatus' value='1'/>
+<enum name='BITFeedbackComposeResultCancelled' value='0'/>
+<enum name='BITFeedbackComposeResultSubmitted' value='1'/>
+<enum name='BITFeedbackErrorUnknown' value='0'/>
+<enum name='BITFeedbackUserDataElementDontShow' value='0'/>
+<enum name='BITFeedbackUserDataElementOptional' value='1'/>
+<enum name='BITFeedbackUserDataElementRequired' value='2'/>
+<enum name='BITHockeyErrorUnknown' value='0'/>
+<enum name='BITStoreUpdateCheckDaily' value='0'/>
+<enum name='BITStoreUpdateCheckManually' value='2'/>
+<enum name='BITStoreUpdateCheckWeekly' value='1'/>
+<enum name='BITUpdateAPIClientAuthorizationMissingSecret' value='4'/>
+<enum name='BITUpdateAPIClientCannotCreateConnection' value='5'/>
+<enum name='BITUpdateAPIServerReturnedEmptyResponse' value='3'/>
+<enum name='BITUpdateAPIServerReturnedInvalidData' value='2'/>
+<enum name='BITUpdateAPIServerReturnedInvalidStatus' value='1'/>
+<enum name='BITUpdateCheckDaily' value='1'/>
+<enum name='BITUpdateCheckManually' value='2'/>
+<enum name='BITUpdateCheckStartup' value='0'/>
+<enum name='BITUpdateErrorUnknown' value='0'/>
+<enum name='HOCKEYSDK_FEATURE_AUTHENTICATOR' value='1'/>
+<enum name='HOCKEYSDK_FEATURE_CRASH_REPORTER' value='1'/>
+<enum name='HOCKEYSDK_FEATURE_FEEDBACK' value='1'/>
+<enum name='HOCKEYSDK_FEATURE_JIRA_MOBILE_CONNECT' value='0'/>
+<enum name='HOCKEYSDK_FEATURE_STORE_UPDATES' value='1'/>
+<enum name='HOCKEYSDK_FEATURE_UPDATES' value='1'/>
+<enum name='PLCRASH_FEATURE_MACH_EXCEPTIONS' value='1'/>
+<enum name='PLCRASH_FEATURE_UNWIND_COMPACT' value='1'/>
+<enum name='PLCRASH_FEATURE_UNWIND_DWARF' value='1'/>
+<enum name='PLCRASH_REPORT_FILE_VERSION' value='1'/>
+<enum name='PLCrashReportArchitectureARM' value='2'/>
+<enum name='PLCrashReportArchitectureARMv6' value='2'/>
+<enum name='PLCrashReportArchitectureARMv7' value='5'/>
+<enum name='PLCrashReportArchitecturePPC' value='3'/>
+<enum name='PLCrashReportArchitecturePPC64' value='4'/>
+<enum name='PLCrashReportArchitectureUnknown' value='6'/>
+<enum name='PLCrashReportArchitectureX86_32' value='0'/>
+<enum name='PLCrashReportArchitectureX86_64' value='1'/>
+<enum name='PLCrashReportOperatingSystemMacOSX' value='0'/>
+<enum name='PLCrashReportOperatingSystemUnknown' value='3'/>
+<enum name='PLCrashReportOperatingSystemiPhoneOS' value='1'/>
+<enum name='PLCrashReportOperatingSystemiPhoneSimulator' value='2'/>
+<enum name='PLCrashReportProcessorTypeEncodingMach' value='1'/>
+<enum name='PLCrashReportProcessorTypeEncodingUnknown' value='0'/>
+<enum name='PLCrashReportTextFormatiOS' value='0'/>
+<enum name='PLCrashReporterErrorCrashReportInvalid' value='2'/>
+<enum name='PLCrashReporterErrorOperatingSystem' value='1'/>
+<enum name='PLCrashReporterErrorResourceBusy' value='3'/>
+<enum name='PLCrashReporterErrorUnknown' value='0'/>
+<enum name='PLCrashReporterSignalHandlerTypeBSD' value='0'/>
+<enum name='PLCrashReporterSignalHandlerTypeMach' value='1'/>
+<enum name='PLCrashReporterSymbolicationStrategyAll' value='3'/>
+<enum name='PLCrashReporterSymbolicationStrategyNone' value='0'/>
+<enum name='PLCrashReporterSymbolicationStrategyObjC' value='2'/>
+<enum name='PLCrashReporterSymbolicationStrategySymbolTable' value='1'/>
+<function name='plcrash_async_signal_sigcode'>
+<arg declared_type='int' name='signal' type='i'/>
+<arg declared_type='int' name='si_code' type='i'/>
+<retval const='true' declared_type='char*' type='*'/>
+</function>
+<function name='plcrash_async_signal_signame'>
+<arg declared_type='int' name='signal' type='i'/>
+<retval const='true' declared_type='char*' type='*'/>
+</function>
+<class name='BITAuthenticator'>
+<method selector='authenticateInstallation'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='authenticationSecret'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='cleanupInternalStorage'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='deviceAuthenticationURL'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+<method selector='handleOpenURL:sourceApplication:annotation:'>
+<arg declared_type='NSURL*' index='0' name='url' type='@'/>
+<arg declared_type='NSString*' index='1' name='sourceApplication' type='@'/>
+<arg declared_type='id' index='2' name='annotation' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='identificationType'>
+<retval declared_type='BITAuthenticatorIdentificationType' type='I' type64='Q'/>
+</method>
+<method selector='identifyWithCompletion:'>
+<arg declared_type='void (^)(BOOL, NSError *)' function_pointer='true' index='0' name='completion' type='@?'>
+<arg declared_type='BOOL' type='B'/>
+<arg declared_type='NSError*' type='@'/>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='isIdentified'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isValidated'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='publicInstallationIdentifier'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='restrictApplicationUsage'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='restrictionEnforcementFrequency'>
+<retval declared_type='BITAuthenticatorAppRestrictionEnforcementFrequency' type='I' type64='Q'/>
+</method>
+<method selector='setAuthenticationSecret:'>
+<arg declared_type='NSString*' index='0' name='authenticationSecret' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setIdentificationType:'>
+<arg declared_type='BITAuthenticatorIdentificationType' index='0' name='identificationType' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setRestrictApplicationUsage:'>
+<arg declared_type='BOOL' index='0' name='restrictApplicationUsage' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setRestrictionEnforcementFrequency:'>
+<arg declared_type='BITAuthenticatorAppRestrictionEnforcementFrequency' index='0' name='restrictionEnforcementFrequency' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUrlScheme:'>
+<arg declared_type='NSString*' index='0' name='urlScheme' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setWebpageURL:'>
+<arg declared_type='NSURL*' index='0' name='webpageURL' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='urlScheme'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='validateWithCompletion:'>
+<arg declared_type='void (^)(BOOL, NSError *)' function_pointer='true' index='0' name='completion' type='@?'>
+<arg declared_type='BOOL' type='B'/>
+<arg declared_type='NSError*' type='@'/>
+<retval declared_type='void' type='v'/>
+</arg>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='webpageURL'>
+<retval declared_type='NSURL*' type='@'/>
+</method>
+</class>
+<class name='BITCrashAttachment'>
+<method selector='attachmentData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='contentType'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='filename'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithFilename:attachmentData:contentType:'>
+<arg declared_type='NSString*' index='0' name='filename' type='@'/>
+<arg declared_type='NSData*' index='1' name='attachmentData' type='@'/>
+<arg declared_type='NSString*' index='2' name='contentType' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='BITCrashManager'>
+<method selector='crashManagerStatus'>
+<retval declared_type='BITCrashManagerStatus' type='I' type64='Q'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='didCrashInLastSession'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='generateTestCrash'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='isDebuggerAttached'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isMachExceptionHandlerEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isOnDeviceSymbolicationEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setCrashCallbacks:'>
+<arg declared_type='PLCrashReporterCallbacks*' index='0' name='callbacks' type='^{PLCrashReporterCallbacks=S^v^?}'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCrashManagerStatus:'>
+<arg declared_type='BITCrashManagerStatus' index='0' name='crashManagerStatus' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setEnableMachExceptionHandler:'>
+<arg declared_type='BOOL' index='0' name='enableMachExceptionHandler' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setEnableOnDeviceSymbolication:'>
+<arg declared_type='BOOL' index='0' name='enableOnDeviceSymbolication' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setShowAlwaysButton:'>
+<arg declared_type='BOOL' index='0' name='showAlwaysButton' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='shouldShowAlwaysButton'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='timeintervalCrashInLastSessionOccured'>
+<retval declared_type='NSTimeInterval' type='d'/>
+</method>
+</class>
+<class name='BITFeedbackActivity'>
+<method selector='customActivityImage'>
+<retval declared_type='UIImage*' type='@'/>
+</method>
+<method selector='customActivityTitle'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setCustomActivityImage:'>
+<arg declared_type='UIImage*' index='0' name='customActivityImage' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCustomActivityTitle:'>
+<arg declared_type='NSString*' index='0' name='customActivityTitle' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='BITFeedbackComposeViewController'>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='prepareWithItems:'>
+<arg declared_type='NSArray*' index='0' name='items' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='BITFeedbackManager'>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='feedbackComposeViewController'>
+<retval declared_type='BITFeedbackComposeViewController*' type='@'/>
+</method>
+<method selector='feedbackListViewController:'>
+<arg declared_type='BOOL' index='0' name='modal' type='B'/>
+<retval declared_type='BITFeedbackListViewController*' type='@'/>
+</method>
+<method selector='requireUserEmail'>
+<retval declared_type='BITFeedbackUserDataElement' type='i' type64='q'/>
+</method>
+<method selector='requireUserName'>
+<retval declared_type='BITFeedbackUserDataElement' type='i' type64='q'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setRequireUserEmail:'>
+<arg declared_type='BITFeedbackUserDataElement' index='0' name='requireUserEmail' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setRequireUserName:'>
+<arg declared_type='BITFeedbackUserDataElement' index='0' name='requireUserName' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setShowAlertOnIncomingMessages:'>
+<arg declared_type='BOOL' index='0' name='showAlertOnIncomingMessages' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setShowFirstRequiredPresentationModal:'>
+<arg declared_type='BOOL' index='0' name='showFirstRequiredPresentationModal' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='showAlertOnIncomingMessages'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='showFeedbackComposeView'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='showFeedbackListView'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='showFirstRequiredPresentationModal'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+</class>
+<class name='BITHockeyBaseManager'>
+<method selector='barStyle'>
+<retval declared_type='UIBarStyle' type='i' type64='q'/>
+</method>
+<method selector='modalPresentationStyle'>
+<retval declared_type='UIModalPresentationStyle' type='i' type64='q'/>
+</method>
+<method selector='navigationBarTintColor'>
+<retval declared_type='UIColor*' type='@'/>
+</method>
+<method selector='serverURL'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setBarStyle:'>
+<arg declared_type='UIBarStyle' index='0' name='barStyle' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setModalPresentationStyle:'>
+<arg declared_type='UIModalPresentationStyle' index='0' name='modalPresentationStyle' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setNavigationBarTintColor:'>
+<arg declared_type='UIColor*' index='0' name='navigationBarTintColor' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setServerURL:'>
+<arg declared_type='NSString*' index='0' name='serverURL' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='BITHockeyBaseViewController'>
+<method selector='initWithModalStyle:'>
+<arg declared_type='BOOL' index='0' name='modal' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithStyle:modal:'>
+<arg declared_type='UITableViewStyle' index='0' name='style' type='i' type64='q'/>
+<arg declared_type='BOOL' index='1' name='modal' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='modalAnimated'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setModalAnimated:'>
+<arg declared_type='BOOL' index='0' name='modalAnimated' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+</class>
+<class name='BITHockeyManager'>
+<method selector='authenticator'>
+<retval declared_type='BITAuthenticator*' type='@'/>
+</method>
+<method selector='build'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='configureWithBetaIdentifier:liveIdentifier:delegate:'>
+<arg declared_type='NSString*' index='0' name='betaIdentifier' type='@'/>
+<arg declared_type='NSString*' index='1' name='liveIdentifier' type='@'/>
+<arg declared_type='id' index='2' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='configureWithIdentifier:'>
+<arg declared_type='NSString*' index='0' name='appIdentifier' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='configureWithIdentifier:delegate:'>
+<arg declared_type='NSString*' index='0' name='appIdentifier' type='@'/>
+<arg declared_type='id' index='1' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManager'>
+<retval declared_type='BITCrashManager*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='feedbackManager'>
+<retval declared_type='BITFeedbackManager*' type='@'/>
+</method>
+<method selector='installString'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='isAppStoreEnvironment'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isCrashManagerDisabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isDebugLogEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isFeedbackManagerDisabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isStoreUpdateManagerEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isUpdateManagerDisabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='serverURL'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='setAuthenticator:'>
+<arg declared_type='BITAuthenticator*' index='0' name='authenticator' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCrashManager:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDebugLogEnabled:'>
+<arg declared_type='BOOL' index='0' name='debugLogEnabled' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDisableCrashManager:'>
+<arg declared_type='BOOL' index='0' name='disableCrashManager' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDisableFeedbackManager:'>
+<arg declared_type='BOOL' index='0' name='disableFeedbackManager' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDisableUpdateManager:'>
+<arg declared_type='BOOL' index='0' name='disableUpdateManager' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setEnableStoreUpdateManager:'>
+<arg declared_type='BOOL' index='0' name='enableStoreUpdateManager' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setFeedbackManager:'>
+<arg declared_type='BITFeedbackManager*' index='0' name='feedbackManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setServerURL:'>
+<arg declared_type='NSString*' index='0' name='serverURL' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setStoreUpdateManager:'>
+<arg declared_type='BITStoreUpdateManager*' index='0' name='storeUpdateManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUpdateManager:'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUserEmail:'>
+<arg declared_type='NSString*' index='0' name='userEmail' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUserID:'>
+<arg declared_type='NSString*' index='0' name='userID' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUserName:'>
+<arg declared_type='NSString*' index='0' name='userName' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='sharedHockeyManager'>
+<retval declared_type='BITHockeyManager*' type='@'/>
+</method>
+<method selector='startManager'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='storeUpdateManager'>
+<retval declared_type='BITStoreUpdateManager*' type='@'/>
+</method>
+<method selector='testIdentifier'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='updateManager'>
+<retval declared_type='BITUpdateManager*' type='@'/>
+</method>
+<method selector='userEmail'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userID'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='version'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReport'>
+<method selector='applicationInfo'>
+<retval declared_type='BITPLCrashReportApplicationInfo*' type='@'/>
+</method>
+<method selector='exceptionInfo'>
+<retval declared_type='BITPLCrashReportExceptionInfo*' type='@'/>
+</method>
+<method selector='hasExceptionInfo'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='hasMachineInfo'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='hasProcessInfo'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='imageForAddress:'>
+<arg declared_type='uint64_t' index='0' name='address' type='Q'/>
+<retval declared_type='BITPLCrashReportBinaryImageInfo*' type='@'/>
+</method>
+<method selector='images'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='initWithData:error:'>
+<arg declared_type='NSData*' index='0' name='encodedData' type='@'/>
+<arg declared_type='NSError**' index='1' name='outError' type='^@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='machExceptionInfo'>
+<retval declared_type='BITPLCrashReportMachExceptionInfo*' type='@'/>
+</method>
+<method selector='machineInfo'>
+<retval declared_type='BITPLCrashReportMachineInfo*' type='@'/>
+</method>
+<method selector='processInfo'>
+<retval declared_type='BITPLCrashReportProcessInfo*' type='@'/>
+</method>
+<method selector='signalInfo'>
+<retval declared_type='BITPLCrashReportSignalInfo*' type='@'/>
+</method>
+<method selector='systemInfo'>
+<retval declared_type='BITPLCrashReportSystemInfo*' type='@'/>
+</method>
+<method selector='threads'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='uuidRef'>
+<retval declared_type='CFUUIDRef' type='^{__CFUUID=}'/>
+</method>
+</class>
+<class name='BITPLCrashReportApplicationInfo'>
+<method selector='applicationIdentifier'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='applicationVersion'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithApplicationIdentifier:applicationVersion:'>
+<arg declared_type='NSString*' index='0' name='applicationIdentifier' type='@'/>
+<arg declared_type='NSString*' index='1' name='applicationVersion' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportBinaryImageInfo'>
+<method selector='codeType'>
+<retval declared_type='BITPLCrashReportProcessorInfo*' type='@'/>
+</method>
+<method selector='hasImageUUID'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='imageBaseAddress'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='imageName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='imageSize'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='imageUUID'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithCodeType:baseAddress:size:name:uuid:'>
+<arg declared_type='BITPLCrashReportProcessorInfo*' index='0' name='processorInfo' type='@'/>
+<arg declared_type='uint64_t' index='1' name='baseAddress' type='Q'/>
+<arg declared_type='uint64_t' index='2' name='imageSize' type='Q'/>
+<arg declared_type='NSString*' index='3' name='imageName' type='@'/>
+<arg declared_type='NSData*' index='4' name='uuid' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportExceptionInfo'>
+<method selector='exceptionName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='exceptionReason'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithExceptionName:reason:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='reason' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithExceptionName:reason:stackFrames:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='reason' type='@'/>
+<arg declared_type='NSArray*' index='2' name='stackFrames' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='stackFrames'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportMachExceptionInfo'>
+<method selector='codes'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='initWithType:codes:'>
+<arg declared_type='uint64_t' index='0' name='type' type='Q'/>
+<arg declared_type='NSArray*' index='1' name='codes' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='type'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+</class>
+<class name='BITPLCrashReportMachineInfo'>
+<method selector='initWithModelName:processorInfo:processorCount:logicalProcessorCount:'>
+<arg declared_type='NSString*' index='0' name='modelName' type='@'/>
+<arg declared_type='BITPLCrashReportProcessorInfo*' index='1' name='processorInfo' type='@'/>
+<arg declared_type='NSUInteger' index='2' name='processorCount' type='I' type64='Q'/>
+<arg declared_type='NSUInteger' index='3' name='logicalProcessorCount' type='I' type64='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='logicalProcessorCount'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='modelName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='processorCount'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='processorInfo'>
+<retval declared_type='BITPLCrashReportProcessorInfo*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportProcessInfo'>
+<method selector='initWithProcessName:processID:processPath:processStartTime:parentProcessName:parentProcessID:native:'>
+<arg declared_type='NSString*' index='0' name='processName' type='@'/>
+<arg declared_type='NSUInteger' index='1' name='processID' type='I' type64='Q'/>
+<arg declared_type='NSString*' index='2' name='processPath' type='@'/>
+<arg declared_type='NSDate*' index='3' name='processStartTime' type='@'/>
+<arg declared_type='NSString*' index='4' name='parentProcessName' type='@'/>
+<arg declared_type='NSUInteger' index='5' name='parentProcessID' type='I' type64='Q'/>
+<arg declared_type='BOOL' index='6' name='native' type='B'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='native'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='parentProcessID'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='parentProcessName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='processID'>
+<retval declared_type='NSUInteger' type='I' type64='Q'/>
+</method>
+<method selector='processName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='processPath'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='processStartTime'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportProcessorInfo'>
+<method selector='initWithTypeEncoding:type:subtype:'>
+<arg declared_type='PLCrashReportProcessorTypeEncoding' index='0' name='typeEncoding' type='i'/>
+<arg declared_type='uint64_t' index='1' name='type' type='Q'/>
+<arg declared_type='uint64_t' index='2' name='subtype' type='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='subtype'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='type'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='typeEncoding'>
+<retval declared_type='PLCrashReportProcessorTypeEncoding' type='i'/>
+</method>
+</class>
+<class name='BITPLCrashReportRegisterInfo'>
+<method selector='initWithRegisterName:registerValue:'>
+<arg declared_type='NSString*' index='0' name='registerName' type='@'/>
+<arg declared_type='uint64_t' index='1' name='registerValue' type='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='registerName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='registerValue'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+</class>
+<class name='BITPLCrashReportSignalInfo'>
+<method selector='address'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='code'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='initWithSignalName:code:address:'>
+<arg declared_type='NSString*' index='0' name='name' type='@'/>
+<arg declared_type='NSString*' index='1' name='code' type='@'/>
+<arg declared_type='uint64_t' index='2' name='address' type='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='name'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportStackFrameInfo'>
+<method selector='initWithInstructionPointer:symbolInfo:'>
+<arg declared_type='uint64_t' index='0' name='instructionPointer' type='Q'/>
+<arg declared_type='BITPLCrashReportSymbolInfo*' index='1' name='symbolInfo' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='instructionPointer'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='symbolInfo'>
+<retval declared_type='BITPLCrashReportSymbolInfo*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportSymbolInfo'>
+<method selector='endAddress'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='initWithSymbolName:startAddress:endAddress:'>
+<arg declared_type='NSString*' index='0' name='symbolName' type='@'/>
+<arg declared_type='uint64_t' index='1' name='startAddress' type='Q'/>
+<arg declared_type='uint64_t' index='2' name='endAddress' type='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='startAddress'>
+<retval declared_type='uint64_t' type='Q'/>
+</method>
+<method selector='symbolName'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportSystemInfo'>
+<method selector='architecture'>
+<retval declared_type='PLCrashReportArchitecture' type='i'/>
+</method>
+<method selector='initWithOperatingSystem:operatingSystemVersion:architecture:timestamp:'>
+<arg declared_type='PLCrashReportOperatingSystem' index='0' name='operatingSystem' type='i'/>
+<arg declared_type='NSString*' index='1' name='operatingSystemVersion' type='@'/>
+<arg declared_type='PLCrashReportArchitecture' index='2' name='architecture' type='i'/>
+<arg declared_type='NSDate*' index='3' name='timestamp' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithOperatingSystem:operatingSystemVersion:operatingSystemBuild:architecture:timestamp:'>
+<arg declared_type='PLCrashReportOperatingSystem' index='0' name='operatingSystem' type='i'/>
+<arg declared_type='NSString*' index='1' name='operatingSystemVersion' type='@'/>
+<arg declared_type='NSString*' index='2' name='operatingSystemBuild' type='@'/>
+<arg declared_type='PLCrashReportArchitecture' index='3' name='architecture' type='i'/>
+<arg declared_type='NSDate*' index='4' name='timestamp' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='operatingSystem'>
+<retval declared_type='PLCrashReportOperatingSystem' type='i'/>
+</method>
+<method selector='operatingSystemBuild'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='operatingSystemVersion'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='timestamp'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportTextFormatter'>
+<method selector='initWithTextFormat:stringEncoding:'>
+<arg declared_type='PLCrashReportTextFormat' index='0' name='textFormat' type='i'/>
+<arg declared_type='NSStringEncoding' index='1' name='stringEncoding' type='I' type64='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method class_method='true' selector='stringValueForCrashReport:withTextFormat:'>
+<arg declared_type='BITPLCrashReport*' index='0' name='report' type='@'/>
+<arg declared_type='PLCrashReportTextFormat' index='1' name='textFormat' type='i'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReportThreadInfo'>
+<method selector='crashed'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='initWithThreadNumber:stackFrames:crashed:registers:'>
+<arg declared_type='NSInteger' index='0' name='threadNumber' type='i' type64='q'/>
+<arg declared_type='NSArray*' index='1' name='stackFrames' type='@'/>
+<arg declared_type='BOOL' index='2' name='crashed' type='B'/>
+<arg declared_type='NSArray*' index='3' name='registers' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='registers'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='stackFrames'>
+<retval declared_type='NSArray*' type='@'/>
+</method>
+<method selector='threadNumber'>
+<retval declared_type='NSInteger' type='i' type64='q'/>
+</method>
+</class>
+<class name='BITPLCrashReporter'>
+<method selector='enableCrashReporter'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='enableCrashReporterAndReturnError:'>
+<arg declared_type='NSError**' index='0' name='outError' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='generateLiveReport'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='generateLiveReportAndReturnError:'>
+<arg declared_type='NSError**' index='0' name='outError' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='generateLiveReportWithThread:'>
+<arg declared_type='thread_t' index='0' name='thread' type='I'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='generateLiveReportWithThread:error:'>
+<arg declared_type='thread_t' index='0' name='thread' type='I'/>
+<arg declared_type='NSError**' index='1' name='outError' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='hasPendingCrashReport'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='initWithConfiguration:'>
+<arg declared_type='BITPLCrashReporterConfig*' index='0' name='config' type='@'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='loadPendingCrashReportData'>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='loadPendingCrashReportDataAndReturnError:'>
+<arg declared_type='NSError**' index='0' name='outError' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='purgePendingCrashReport'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='purgePendingCrashReportAndReturnError:'>
+<arg declared_type='NSError**' index='0' name='outError' type='^@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setCrashCallbacks:'>
+<arg declared_type='PLCrashReporterCallbacks*' index='0' name='callbacks' type='^{PLCrashReporterCallbacks=S^v^?}'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method class_method='true' selector='sharedReporter'>
+<retval declared_type='BITPLCrashReporter*' type='@'/>
+</method>
+</class>
+<class name='BITPLCrashReporterConfig'>
+<method class_method='true' selector='defaultConfiguration'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='init'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='initWithSignalHandlerType:symbolicationStrategy:'>
+<arg declared_type='PLCrashReporterSignalHandlerType' index='0' name='signalHandlerType' type='I' type64='Q'/>
+<arg declared_type='PLCrashReporterSymbolicationStrategy' index='1' name='symbolicationStrategy' type='I' type64='Q'/>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='signalHandlerType'>
+<retval declared_type='PLCrashReporterSignalHandlerType' type='I' type64='Q'/>
+</method>
+<method selector='symbolicationStrategy'>
+<retval declared_type='PLCrashReporterSymbolicationStrategy' type='I' type64='Q'/>
+</method>
+</class>
+<class name='BITStoreUpdateManager'>
+<method selector='checkForUpdate'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='countryCode'>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='isCheckingForUpdateOnLaunch'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isUpdateUIEnabled'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setCheckForUpdateOnLaunch:'>
+<arg declared_type='BOOL' index='0' name='checkForUpdateOnLaunch' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCountryCode:'>
+<arg declared_type='NSString*' index='0' name='countryCode' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUpdateSetting:'>
+<arg declared_type='BITStoreUpdateSetting' index='0' name='updateSetting' type='i' type64='q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUpdateUIEnabled:'>
+<arg declared_type='BOOL' index='0' name='updateUIEnabled' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='updateSetting'>
+<retval declared_type='BITStoreUpdateSetting' type='i' type64='q'/>
+</method>
+</class>
+<class name='BITUpdateManager'>
+<method selector='alwaysShowUpdateReminder'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='checkForUpdate'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='delegate'>
+<retval declared_type='id' type='@'/>
+</method>
+<method selector='disableUpdateCheckOptionWhenExpired'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='expiryDate'>
+<retval declared_type='NSDate*' type='@'/>
+</method>
+<method selector='hockeyViewController:'>
+<arg declared_type='BOOL' index='0' name='modal' type='B'/>
+<retval declared_type='BITUpdateViewController*' type='@'/>
+</method>
+<method selector='isCheckForUpdateOnLaunch'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='isShowingDirectInstallOption'>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='setAlwaysShowUpdateReminder:'>
+<arg declared_type='BOOL' index='0' name='alwaysShowUpdateReminder' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setCheckForUpdateOnLaunch:'>
+<arg declared_type='BOOL' index='0' name='checkForUpdateOnLaunch' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDelegate:'>
+<arg declared_type='id' index='0' name='delegate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setDisableUpdateCheckOptionWhenExpired:'>
+<arg declared_type='BOOL' index='0' name='disableUpdateCheckOptionWhenExpired' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setExpiryDate:'>
+<arg declared_type='NSDate*' index='0' name='expiryDate' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setShowDirectInstallOption:'>
+<arg declared_type='BOOL' index='0' name='showDirectInstallOption' type='B'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='setUpdateSetting:'>
+<arg declared_type='BITUpdateSetting' index='0' name='updateSetting' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='showUpdateView'>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='updateSetting'>
+<retval declared_type='BITUpdateSetting' type='I' type64='Q'/>
+</method>
+</class>
+<class name='NSObject'>
+<method selector='applicationLogForCrashManager:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='attachmentForCrashManager:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='BITCrashAttachment*' type='@'/>
+</method>
+<method selector='authenticator:willShowAuthenticationController:'>
+<arg declared_type='BITAuthenticator*' index='0' name='authenticator' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='viewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManager:didFailWithError:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<arg declared_type='NSError*' index='1' name='error' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerDidFinishSendingCrashReport:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillCancelSendingCrashReport:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillSendCrashReport:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillSendCrashReportsAlways:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillShowSubmitCrashReportAlert:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='detectedUpdateFromStoreUpdateManager:newVersion:storeURL:'>
+<arg declared_type='BITStoreUpdateManager*' index='0' name='storeUpdateManager' type='@'/>
+<arg declared_type='NSString*' index='1' name='newVersion' type='@'/>
+<arg declared_type='NSURL*' index='2' name='storeURL' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='didDisplayExpiryAlertForUpdateManager:'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='feedbackComposeViewController:didFinishWithResult:'>
+<arg declared_type='BITFeedbackComposeViewController*' index='0' name='composeViewController' type='@'/>
+<arg declared_type='BITFeedbackComposeResult' index='1' name='composeResult' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='feedbackComposeViewControllerDidFinish:'>
+<arg declared_type='BITFeedbackComposeViewController*' index='0' name='composeViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='feedbackManagerDidReceiveNewFeedback:'>
+<arg declared_type='BITFeedbackManager*' index='0' name='feedbackManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='formatReport:error:'>
+<arg declared_type='BITPLCrashReport*' index='0' name='report' type='@'/>
+<arg declared_type='NSError**' index='1' name='outError' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+<method selector='shouldDisplayExpiryAlertForUpdateManager:'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='shouldUseLiveIdentifierForHockeyManager:'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='updateManagerShouldSendUsageData:'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='userEmailForCrashManager:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userEmailForHockeyManager:componentManager:'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userIDForHockeyManager:componentManager:'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userNameForCrashManager:'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userNameForHockeyManager:componentManager:'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='viewControllerForHockeyManager:componentManager:'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+<method selector='viewControllerForUpdateManager:'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+</class>
+<informal_protocol name='BITAuthenticatorDelegate'>
+<method selector='authenticator:willShowAuthenticationController:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='BITAuthenticator*' index='0' name='authenticator' type='@'/>
+<arg declared_type='UIViewController*' index='1' name='viewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='BITCrashManagerDelegate'>
+<method selector='applicationLogForCrashManager:' type='@12@0:4@8' type64='@24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='attachmentForCrashManager:' type='@12@0:4@8' type64='@24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='BITCrashAttachment*' type='@'/>
+</method>
+<method selector='crashManager:didFailWithError:' type='v16@0:4@8@12' type64='v32@0:8@16@24'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<arg declared_type='NSError*' index='1' name='error' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerDidFinishSendingCrashReport:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillCancelSendingCrashReport:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillSendCrashReport:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillSendCrashReportsAlways:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='crashManagerWillShowSubmitCrashReportAlert:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='userEmailForCrashManager:' type='@12@0:4@8' type64='@24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userNameForCrashManager:' type='@12@0:4@8' type64='@24@0:8@16'>
+<arg declared_type='BITCrashManager*' index='0' name='crashManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='BITFeedbackComposeViewControllerDelegate'>
+<method selector='feedbackComposeViewController:didFinishWithResult:' type='v16@0:4@8I12' type64='v32@0:8@16Q24'>
+<arg declared_type='BITFeedbackComposeViewController*' index='0' name='composeViewController' type='@'/>
+<arg declared_type='BITFeedbackComposeResult' index='1' name='composeResult' type='I' type64='Q'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='feedbackComposeViewControllerDidFinish:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITFeedbackComposeViewController*' index='0' name='composeViewController' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='BITFeedbackManagerDelegate'>
+<method selector='feedbackManagerDidReceiveNewFeedback:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITFeedbackManager*' index='0' name='feedbackManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='BITHockeyManagerDelegate'>
+<method selector='shouldUseLiveIdentifierForHockeyManager:' type='B12@0:4@8' type64='B24@0:8@16'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='userEmailForHockeyManager:componentManager:' type='@16@0:4@8@12' type64='@32@0:8@16@24'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userIDForHockeyManager:componentManager:' type='@16@0:4@8@12' type64='@32@0:8@16@24'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='userNameForHockeyManager:componentManager:' type='@16@0:4@8@12' type64='@32@0:8@16@24'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='NSString*' type='@'/>
+</method>
+<method selector='viewControllerForHockeyManager:componentManager:' type='@16@0:4@8@12' type64='@32@0:8@16@24'>
+<arg declared_type='BITHockeyManager*' index='0' name='hockeyManager' type='@'/>
+<arg declared_type='BITHockeyBaseManager*' index='1' name='componentManager' type='@'/>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='BITStoreUpdateManagerDelegate'>
+<method selector='detectedUpdateFromStoreUpdateManager:newVersion:storeURL:' type='v20@0:4@8@12@16' type64='v40@0:8@16@24@32'>
+<arg declared_type='BITStoreUpdateManager*' index='0' name='storeUpdateManager' type='@'/>
+<arg declared_type='NSString*' index='1' name='newVersion' type='@'/>
+<arg declared_type='NSURL*' index='2' name='storeURL' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+</informal_protocol>
+<informal_protocol name='BITUpdateManagerDelegate'>
+<method selector='didDisplayExpiryAlertForUpdateManager:' type='v12@0:4@8' type64='v24@0:8@16'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='void' type='v'/>
+</method>
+<method selector='shouldDisplayExpiryAlertForUpdateManager:' type='B12@0:4@8' type64='B24@0:8@16'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='updateManagerShouldSendUsageData:' type='B12@0:4@8' type64='B24@0:8@16'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='BOOL' type='B'/>
+</method>
+<method selector='viewControllerForUpdateManager:' type='@12@0:4@8' type64='@24@0:8@16'>
+<arg declared_type='BITUpdateManager*' index='0' name='updateManager' type='@'/>
+<retval declared_type='UIViewController*' type='@'/>
+</method>
+</informal_protocol>
+<informal_protocol name='PLCrashReportFormatter'>
+<method selector='formatReport:error:' type='@16@0:4@8^@12' type64='@32@0:8@16^@24'>
+<arg declared_type='BITPLCrashReport*' index='0' name='report' type='@'/>
+<arg declared_type='NSError**' index='1' name='outError' type='^@'/>
+<retval declared_type='NSData*' type='@'/>
+</method>
+</informal_protocol>
+</signatures>

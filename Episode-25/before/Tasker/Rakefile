@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+$:.unshift("/Library/RubyMotion/lib")
+require 'motion/project/template/ios'
+
+begin
+  require 'bundler'
+  Bundler.require
+rescue LoadError
+end
+
+Motion::Project::App.setup do |app|
+  app.name = 'Tasker'
+  app.identifier = 'tv.motioninmotion.Tasker'
+  app.version = '0.1.0'
+  app.short_version = app.version
+
+  app.info_plist["UIViewControllerBasedStatusBarAppearance"] = false
+  app.info_plist['UIStatusBarStyle'] = 'UIStatusBarStyleLightContent'
+
+  app.pods do
+    pod 'RestKit'
+    pod 'SVProgressHUD'
+    pod 'MHPrettyDate'
+    pod 'TPKeyboardAvoiding'
+  end
+
+  if app.hockeyapp?
+    app.codesign_certificate = "iPhone Distribution: Jack Watson-Hamblin (5GF8523NHR)"
+    app.provisioning_profile = "profiles/Tasker.mobileprovision"
+    app.entitlements['get-task-allow'] = false
+
+    app.hockeyapp do
+      set :api_token, ENV['HOCKEYAPP_API_TOKEN']
+    end
+  end
+
+  app.testflight do
+    app.codesign_certificate = "iPhone Distribution: Jack Watson-Hamblin (5GF8523NHR)"
+    app.provisioning_profile = "profiles/Tasker.mobileprovision"
+    app.entitlements['get-task-allow'] = false
+    app.testflight.api_token = ENV['TESTFLIGHT_API_TOKEN']
+    app.testflight.team_token = "7c47f0ee40371dda253bc9edacb645cd_Mzc1NzczMjAxNC0wNS0wNCAwNzoxMTo1Mi4zOTA3MjI"
+    app.testflight.app_token = "e87250f6-3797-4568-a70b-d1cee72d2bd9"
+  end
+end
+task :"build:simulator" => :"schema:build"
