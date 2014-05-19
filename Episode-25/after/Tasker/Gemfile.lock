@@ -37,6 +37,7 @@ GEM
     motion-cocoapods (1.4.1)
       cocoapods (>= 0.32.1)
     motion-hockeyapp (1.1.5)
+    motion-installr (1.0.1)
     motion-testflight (1.5)
     motion-yaml (1.2)
     multi_json (1.9.2)
@@ -60,5 +61,6 @@ DEPENDENCIES
   cdq
   motion-cocoapods
   motion-hockeyapp
+  motion-installr
   motion-testflight
   rake

@@ -24,6 +24,13 @@ Motion::Project::App.setup do |app|
     pod 'TPKeyboardAvoiding'
   end
 
+  app.installrapp do
+    app.installr_api_token = ENV['INSTALLR_API_TOKEN']
+    app.codesign_certificate = "iPhone Distribution: Jack Watson-Hamblin (5GF8523NHR)"
+    app.provisioning_profile = "profiles/Tasker.mobileprovision"
+    app.entitlements['get-task-allow'] = false
+  end
+
   if app.hockeyapp?
     app.codesign_certificate = "iPhone Distribution: Jack Watson-Hamblin (5GF8523NHR)"
     app.provisioning_profile = "profiles/Tasker.mobileprovision"
