@@ -1,8 +1,8 @@
 class HelpScreen < PM::WebScreen
-  title "Help"
+  title 'Help'
 
   def on_load
-    set_nav_bar_button :right, title: "Done", action: :close_help_screen
+    set_nav_bar_button :right, title: 'Done', action: :close_help_screen
   end
 
   def content
@@ -10,12 +10,12 @@ class HelpScreen < PM::WebScreen
   end
 
   def load_failed
-    UIAlert.alloc.initWithTitle('Failed to load',
-      message: 'The help content failed t load sorry, double check you have an internet connection',
-      delegate: nil,
-      cancelButtonTitle: 'OK',
-      otherButtonTitles: nil
-    ).show
+    alert = UIAlertController.alertControllerWithTitle('Failed to load',
+                                                       message: 'The help content failed to load sorry, double check you have an internet connection.',
+                                                       preferredStyle: UIAlertControllerStyleAlert)
+    action = UIAlertAction.actionWithTitle('Ok', style: UIAlertActionStyleDefault, handler: nil)
+    alert.addAction(action)
+    presentViewController(alert, animated: true, completion: nil)
   end
 
   def close_help_screen

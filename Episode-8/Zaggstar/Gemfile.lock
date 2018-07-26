@@ -5,7 +5,7 @@ GEM
       methadone
     methadone (1.3.1)
       bundler
-    rake (10.1.1)
+    rake (12.3.1)
 
 PLATFORMS
   ruby
@@ -13,3 +13,6 @@ PLATFORMS
 DEPENDENCIES
   ProMotion
   rake
+
+BUNDLED WITH
+   1.16.2
