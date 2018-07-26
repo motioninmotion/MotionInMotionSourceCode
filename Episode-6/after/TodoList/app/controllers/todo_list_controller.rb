@@ -3,7 +3,7 @@ class TodoListController < UITableViewController
 
   def init
     super
-    self.title = "Todos"
+    self.title = 'Todos'
     self.todoListManager = TodoListManager.new
     self
   end
@@ -13,14 +13,14 @@ class TodoListController < UITableViewController
   end
 
   def tableView(tableView, cellForRowAtIndexPath: indexPath)
-    @reuseIdentifier ||= "TodoCell"
+    @reuseIdentifier ||= 'TodoCell'
 
     cell = tableView.dequeueReusableCellWithIdentifier(@reuseIdentifier) || begin
       UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:@reuseIdentifier)
     end
 
     cell.textLabel.text = self.todoListManager.todos[indexPath.row].title
-    cell.detailTextLabel.text = self.todoListManager.todos[indexPath.row].completed ? "Complete" : "Incomplete"
+    cell.detailTextLabel.text = self.todoListManager.todos[indexPath.row].completed ? 'Complete' : 'Incomplete'
 
     cell
   end
