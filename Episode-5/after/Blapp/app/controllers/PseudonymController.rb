@@ -3,17 +3,17 @@ class PseudonymController < UIViewController
 
   def init
     super
-    self.title = "Profile"
-    self.tabBarItem = UITabBarItem.alloc.initWithTitle("Profile", image:UIImage.imageNamed("Profile"), tag:1)
+    self.title = 'Profile'
+    self.tabBarItem = UITabBarItem.alloc.initWithTitle('Profile', image:UIImage.imageNamed('Profile'), tag:1)
     self.pseudonym = Pseudonym.first || Pseudonym.create
     cdq.save
     self
   end
 
   def viewDidLoad
-   self.navigationController.navigationBar.translucent = false
+    self.navigationController.navigationBar.translucent = false
 
-   self.navigationItem.rightBarButtonItem = saveButton
+    self.navigationItem.rightBarButtonItem = saveButton
 
     self.view.backgroundColor = UIColor.whiteColor
     @pseudonymView = PseudonymView.alloc.initWithFrame(self.view.frame, andPseudonym:self.pseudonym)
@@ -29,7 +29,13 @@ class PseudonymController < UIViewController
     self.pseudonym.name = @pseudonymView.nameField.text
     self.pseudonym.bio = @pseudonymView.bioField.text
     cdq.save
-    UIAlertView.alloc.initWithTitle("Profile Updated", message:nil, delegate:nil, cancelButtonTitle:"OK", otherButtonTitles:nil).show
+
+    alert = UIAlertController.alertControllerWithTitle('Profile Updated',
+                                                       message: nil,
+                                                       preferredStyle: UIAlertControllerStyleAlert)
+    action = UIAlertAction.actionWithTitle('Ok', style: UIAlertActionStyleDefault, handler: nil)
+    alert.addAction(action)
+    presentViewController(alert, animated: true, completion: nil)
   end
 
 end
