@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 $:.unshift("/Library/RubyMotion/lib")
+$:.unshift("~/.rubymotion/rubymotion-templates")
+
 require 'motion/project/template/ios'
 
 begin
@@ -12,3 +14,4 @@ Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'Blapp'
 end
+
