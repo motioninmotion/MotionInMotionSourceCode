@@ -3,8 +3,8 @@ class PseudonymController < UIViewController
 
   def init
     super
-    self.title = "Profile"
-    self.tabBarItem = UITabBarItem.alloc.initWithTitle("Profile", image:UIImage.imageNamed("Profile"), tag:1)
+    self.title = 'Profile'
+    self.tabBarItem = UITabBarItem.alloc.initWithTitle('Profile', image:UIImage.imageNamed('Profile'), tag:1)
     self.pseudonym = Pseudonym.first || Pseudonym.create
     cdq.save
     self
@@ -29,7 +29,7 @@ class PseudonymController < UIViewController
     self.pseudonym.name = @pseudonymView.nameField.text
     self.pseudonym.bio = @pseudonymView.bioField.text
     cdq.save
-    UIAlertView.alloc.initWithTitle("Profile Updated", message:nil, delegate:nil, cancelButtonTitle:"OK", otherButtonTitles:nil).show
+    UIAlertView.alloc.initWithTitle('Profile Updated', message:nil, delegate:nil, cancelButtonTitle:'OK', otherButtonTitles:nil).show
   end
 
 end
