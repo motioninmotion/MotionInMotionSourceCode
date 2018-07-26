@@ -3,8 +3,8 @@ class PostsController < UITableViewController
   def init
     super
 
-    self.title = "Posts"
-    self.tabBarItem = UITabBarItem.alloc.initWithTitle("Posts", image:UIImage.imageNamed('Signpost'), tag:1)
+    self.title = 'Posts'
+    self.tabBarItem = UITabBarItem.alloc.initWithTitle('Posts', image:UIImage.imageNamed('Signpost'), tag:1)
 
     @postsModel = UIApplication.sharedApplication.delegate.postsModel
     @postsModel.addObserver(self, forKeyPath:'newRecordCount', options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld), context:nil)
@@ -35,7 +35,7 @@ class PostsController < UITableViewController
   end
 
   def tableView(tableView, cellForRowAtIndexPath:indexPath)
-    @reuseIdentifier ||= "PostsCell"
+    @reuseIdentifier ||= 'PostsCell'
 
     cell = tableView.dequeueReusableCellWithIdentifier(@reuseIdentifier) || begin
       UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:@reuseIdentifier)
