@@ -2,7 +2,7 @@ class HelloView < UIView
 
   def rmq_build
     rmq.append(UILabel, :hello_label)
-    rmq.append(UIButton, :hello_button).on(:tap) do |sender|
+    rmq.append(UIButton, :hello_button).on(:tap) do |_|
       rmq(:hello_label).animate(
         duration: 1,
         animations: -> (q) {
@@ -12,7 +12,7 @@ class HelloView < UIView
             st.top = st.top - 50
           end
         },
-        completion: -> (did_finish, q) {
+        completion: -> (_, q) {
           q.animate(
             duration: 0.3,
             animations: -> (cq) {
@@ -20,7 +20,7 @@ class HelloView < UIView
                 st.scale = 1
                 st.view.alpha = 1
                 st.top = st.top + 50
-                st.text = (st.text == "Hello RMQ!" ? "Goodbye RMQ!" : "Hello RMQ!")
+                st.text = (st.text == 'Hello RMQ!' ? 'Goodbye RMQ!' : 'Hello RMQ!')
               end
             }
           )
