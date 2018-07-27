@@ -12,7 +12,7 @@ class AppDelegate
 
     puts url.host
     puts url.path
-    puts params["key"]
+    puts params['key']
     true
   end
 
