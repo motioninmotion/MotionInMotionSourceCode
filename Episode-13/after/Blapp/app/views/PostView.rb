@@ -33,7 +33,7 @@ class PostView < UIView
     self
   end
 
-  def font_changed(notfication)
+  def font_changed(_)
     self.contentView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
     self.authorAreaLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
     self.authorBioView.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
