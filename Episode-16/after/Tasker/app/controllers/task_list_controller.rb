@@ -34,7 +34,7 @@ class TaskListController < UITableViewController
 
   # UITableViewDataSource methods
 
-  def tableView(table_view, numberOfRowsInSection: section)
+  def tableView(_, numberOfRowsInSection: section)
     fetch_controller.sections[section].numberOfObjects
   end
 
@@ -58,19 +58,19 @@ class TaskListController < UITableViewController
 
   # UITableViewDelegate methods
 
-  def tableView(table_view, editingStyleForRowAtIndexPath: index_path)
+  def tableView(_, editingStyleForRowAtIndexPath: _)
     UITableViewCellEditingStyleDelete
   end
 
-  def tableView(table_view, canEditRowAtIndexPath: index_path)
+  def tableView(_, canEditRowAtIndexPath: _)
     true
   end
 
-  def tableView(table_view, commitEditingStyle: editing_style, forRowAtIndexPath: index_path)
+  def tableView(_, commitEditingStyle: _, forRowAtIndexPath: index_path)
     fetch_controller.objectAtIndexPath(index_path).destroy
   end
 
-  def tableView(table_view, didSelectRowAtIndexPath: index_path)
+  def tableView(_, didSelectRowAtIndexPath: index_path)
     vc = TaskController.new
     vc.task = fetch_controller.objectAtIndexPath(index_path)
     self.navigationController.pushViewController(vc, animated: true)
@@ -78,11 +78,11 @@ class TaskListController < UITableViewController
 
   # NSFetchedResultsControllerDelegate methods
 
-  def controllerWillChangeContent(controller)
+  def controllerWillChangeContent(_)
     view.beginUpdates
   end
 
-  def controller(controller, didChangeObject: task, atIndexPath: index_path, forChangeType: change_type, newIndexPath: new_index_path)
+  def controller(_, didChangeObject: _, atIndexPath: index_path, forChangeType: change_type, newIndexPath: new_index_path)
     case change_type
       when NSFetchedResultsChangeInsert
         view.insertRowsAtIndexPaths([new_index_path], withRowAnimation: UITableViewRowAnimationAutomatic)
@@ -93,13 +93,13 @@ class TaskListController < UITableViewController
     end
   end
 
-  def controllerDidChangeContent(controller)
+  def controllerDidChangeContent(_)
     view.endUpdates
   end
 
   # Actions
 
-  def add_task(sender)
+  def add_task(_)
     self.presentViewController(
       UINavigationController.alloc.initWithRootViewController(TaskController.new),
       animated: true,
