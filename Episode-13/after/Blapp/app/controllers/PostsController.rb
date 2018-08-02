@@ -19,7 +19,7 @@ class PostsController < UITableViewController
                                             object:nil)
   end
 
-  def font_changed(notification)
+  def font_changed(_)
     self.tableView.reloadData
   end
 
