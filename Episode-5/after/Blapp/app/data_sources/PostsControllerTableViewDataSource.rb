@@ -6,13 +6,13 @@ module PostsControllerTableViewDataSource
 
   def tableView(tableView, cellForRowAtIndexPath: indexPath)
     if indexPath.row == 0
-      cell = tableView.dequeueReusableCellWithIdentifier("NewPostCell") || begin
-        UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:"NewPostCell")
+      cell = tableView.dequeueReusableCellWithIdentifier('NewPostCell') || begin
+        UITableViewCell.alloc.initWithStyle(UITableViewCellStyleDefault, reuseIdentifier:'NewPostCell')
       end
 
-      cell.textLabel.text = "Create a new post"
+      cell.textLabel.text = 'Create a new post'
     else
-      @reuseIdentifier ||= "PostCell"
+      @reuseIdentifier ||= 'PostCell'
 
       cell = tableView.dequeueReusableCellWithIdentifier(@reuseIdentifier) || begin
         UITableViewCell.alloc.initWithStyle(UITableViewCellStyleSubtitle, reuseIdentifier:@reuseIdentifier)

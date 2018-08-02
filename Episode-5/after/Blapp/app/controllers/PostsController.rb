@@ -5,8 +5,8 @@ class PostsController < UITableViewController
 
   def init
     super
-    self.title = "Posts"
-    self.tabBarItem = UITabBarItem.alloc.initWithTitle("Posts", image:UIImage.imageNamed("Newspaper"), tag:0)
+    self.title = 'Posts'
+    self.tabBarItem = UITabBarItem.alloc.initWithTitle('Posts', image:UIImage.imageNamed('Newspaper'), tag:0)
     self
   end
 
