@@ -20,7 +20,7 @@ class ImageController < UIViewController
     end)
   end
 
-  def viewDidAppear(animated)
+  def viewDidAppear(_)
     super
 
     urls = ImageList.sharedInstance.images
