@@ -4,7 +4,7 @@ class ZaggstarFeed < PM::TableScreen
   searchable placeholder: 'Find a Zaggle'
   refreshable callback: :on_refresh,
               pull_message: 'Pull to refresh',
-              refreshing: 'Refresing data…',
+              refreshing: 'Refreshing data…',
               updated_format: "Last updated at %s",
               updated_time_format: "%l:%M %p"
 
