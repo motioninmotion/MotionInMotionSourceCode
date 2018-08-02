@@ -4,7 +4,7 @@ GEM
     dbt (1.1.4)
     motion-kit (0.9.4)
       dbt
-    rake (10.3.1)
+    rake (12.3.1)
 
 PLATFORMS
   ruby
@@ -12,3 +12,6 @@ PLATFORMS
 DEPENDENCIES
   motion-kit
   rake
+
+BUNDLED WITH
+   1.16.2

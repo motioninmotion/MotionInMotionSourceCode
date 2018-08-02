@@ -7,7 +7,7 @@ class ExampleLayout < MotionKit::Layout
 
       add UILabel, :header_title do
         text 'Welcome'
-        text_alignment UITextAlignmentCenter
+        text_alignment NSTextAlignmentCenter
         text_color UIColor.whiteColor
       end
     end
@@ -17,7 +17,7 @@ class ExampleLayout < MotionKit::Layout
 
       add UILabel, :main_text do
         text 'This is the main text in our example layout. Do you like how the views can stretch and shrink and reflow? I did this using motion-kit'
-        text_alignment UITextAlignmentCenter
+        text_alignment NSTextAlignmentCenter
         text_color UIColor.whiteColor
         target.numberOfLines = 0
       end
