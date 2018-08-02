@@ -7,11 +7,11 @@ class ZaggleScreen < PM::Screen
 
   def will_appear
     set_attributes self.view, {
-      background_color: hex_color("#FFFFFF")
+      background_color: hex_color('#FFFFFF')
     }
 
     add UILabel.new, {
-      text: "Zaggle Content",
+      text: 'Zaggle Content',
       font: UIFont.systemFontOfSize(32),
       left: 20,
       top: 200,

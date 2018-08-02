@@ -1,20 +1,20 @@
 class ZaggstarFeed < PM::TableScreen
-  title "Zaggstar Feed"
+  title 'Zaggstar Feed'
 
-  searchable placeholder: "Find a Zaggle"
+  searchable placeholder: 'Find a Zaggle'
   refreshable callback: :on_refresh,
-              pull_message: "Pull to resfresh",
-              refreshing: "Refresing data…",
+              pull_message: 'Pull to refresh',
+              refreshing: 'Refreshing data…',
               updated_format: "Last updated at %s",
               updated_time_format: "%l:%M %p"
 
   def on_load
-    set_nav_bar_button :left, title: "Help", action: :open_help_screen
+    set_nav_bar_button :left, title: 'Help', action: :open_help_screen
   end
 
   def will_appear
     set_attributes self.view, {
-      background_color: hex_color("#FFFFFF")
+      background_color: hex_color('#FFFFFF')
     }
   end
 
@@ -31,7 +31,7 @@ class ZaggstarFeed < PM::TableScreen
       cells: (0..200).map do |n|
         {
           title: "Zaggle #{n}",
-          subtitle: "Zaggle Content",
+          subtitle: 'Zaggle Content',
           action: :open_zaggle,
           arguments: { zaggle_id: n }
         }
