@@ -8,7 +8,7 @@ class TodoListController < UITableViewController
     self
   end
 
-  def tableView(tableView, numberOfRowsInSection:section)
+  def tableView(_, numberOfRowsInSection:_)
     self.todoListManager.todos.count
   end
 
