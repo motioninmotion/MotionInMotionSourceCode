@@ -4,10 +4,7 @@ class AppDelegate
     UINavigationBar.appearance.tap do |o|
       o.barTintColor = UIColor.purpleColor
       o.tintColor = UIColor.whiteColor
-
-      o.setTitleTextAttributes({
-        UITextAttributeTextColor => UIColor.whiteColor
-      })
+      o.titleTextAttributes = {UITextAttributeTextColor => UIColor.whiteColor}
     end
 
     @window = UIWindow.alloc.initWithFrame(UIScreen.mainScreen.bounds)
