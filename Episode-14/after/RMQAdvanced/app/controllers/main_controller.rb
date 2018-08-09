@@ -19,7 +19,7 @@ class MainController < UIViewController
     (20 + rand(30)).times do |n|
       rmq(:container).append(UILabel, :big_label).tag(theme: { type: :label }).style do |st|
         st.text = "Label ##{n}"
-        st.top = n * 60 + 20
+        st.top = n * 60 + 20git
       end
     end
 
@@ -27,7 +27,7 @@ class MainController < UIViewController
     rmq(self.view).attr(contentSize: [320, rmq(:container).get.frame.size.height + 20])
   end
 
-  def capture_view(sender)
+  def capture_view(_)
     UIImageWriteToSavedPhotosAlbum(rmq.image.from_view(self.view, true), nil, nil, nil)
   end
 end
