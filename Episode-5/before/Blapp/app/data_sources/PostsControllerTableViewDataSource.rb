@@ -1,6 +1,6 @@
 module PostsControllerTableViewDataSource
 
-  def tableView(tableView, numberOfRowsInSection:section)
+  def tableView(_, numberOfRowsInSection: _)
     self.posts.count + 1
   end
 
@@ -26,11 +26,11 @@ module PostsControllerTableViewDataSource
     cell
   end
 
-  def tableView(tableView, canEditRowAtIndexPath:indexPath)
+  def tableView(_, canEditRowAtIndexPath:indexPath)
     indexPath.row != 0
   end
 
-  def tableView(tableView, commitEditingStyle:editingStyle, forRowAtIndexPath:indexPath)
+  def tableView(tableView, commitEditingStyle:_, forRowAtIndexPath:indexPath)
     self.posts.delete_at(indexPath.row - 1)
     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation:UITableViewRowAnimationBottom)
   end
