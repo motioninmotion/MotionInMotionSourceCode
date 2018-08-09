@@ -44,7 +44,7 @@ class AuthController < UIViewController
     })
   end
 
-  def button_pressed(sender)
+  def button_pressed(_)
     self.presentingViewController.dismissViewControllerAnimated(true, completion:nil)
     puts "Open the requesting app"
   end
