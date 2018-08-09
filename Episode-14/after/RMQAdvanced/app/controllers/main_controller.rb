@@ -19,7 +19,7 @@ class MainController < UIViewController
     (20 + rand(30)).times do |n|
       rmq(:container).append(UILabel, :big_label).tag(theme: { type: :label }).style do |st|
         st.text = "Label ##{n}"
-        st.top = n * 60 + 20git
+        st.top = n * 60 + 20
       end
     end
 
