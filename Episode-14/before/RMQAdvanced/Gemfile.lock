@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    rake (10.1.1)
+    rake (12.3.1)
     ruby_motion_query (0.5.5)
 
 PLATFORMS
@@ -10,3 +10,6 @@ PLATFORMS
 DEPENDENCIES
   rake
   ruby_motion_query
+
+BUNDLED WITH
+   1.16.2
