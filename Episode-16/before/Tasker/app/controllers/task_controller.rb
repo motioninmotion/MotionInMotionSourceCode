@@ -24,13 +24,13 @@ class TaskController < UIViewController
     end
   end
 
-  def viewWillDisappear(animated)
+  def viewWillDisappear(_)
     update_task
   end
 
   # Actions
 
-  def done(sender)
+  def done(_)
     self.dismissViewControllerAnimated(true, completion: nil)
   end
 

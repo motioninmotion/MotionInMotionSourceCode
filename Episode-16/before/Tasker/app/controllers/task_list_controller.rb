@@ -21,13 +21,13 @@ class TaskListController < UITableViewController
 
   # UITableViewDataSource methods
 
-  def tableView(table_view, numberOfRowsInSection: section)
+  def tableView(_, numberOfRowsInSection: _)
     0
   end
 
   # Actions
 
-  def add_task(sender)
+  def add_task(_)
     self.presentViewController(
       UINavigationController.alloc.initWithRootViewController(TaskController.new),
       animated: true,
