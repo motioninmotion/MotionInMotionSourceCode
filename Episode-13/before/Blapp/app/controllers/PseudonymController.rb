@@ -29,7 +29,13 @@ class PseudonymController < UIViewController
     self.pseudonym.name = @pseudonymView.nameField.text
     self.pseudonym.bio = @pseudonymView.bioField.text
     cdq.save
-    UIAlertView.alloc.initWithTitle("Profile Updated", message:nil, delegate:nil, cancelButtonTitle:"OK", otherButtonTitles:nil).show
+
+    alert = UIAlertController.alertControllerWithTitle('Profile Updated',
+                                                       message: nil,
+                                                       preferredStyle: UIAlertControllerStyleAlert)
+    action = UIAlertAction.actionWithTitle('Ok', style: UIAlertActionStyleDefault, handler: nil)
+    alert.addAction(action)
+    presentViewController(alert, animated: true, completion: nil)
   end
 
 end
