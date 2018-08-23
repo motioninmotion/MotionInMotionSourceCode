@@ -11,7 +11,7 @@ class HomeController < UIViewController
     })
   end
 
-  def button_pressed(sender)
+  def button_pressed(_)
     puts "Open Authenticator Here"
   end
 end

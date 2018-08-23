@@ -18,7 +18,7 @@ class HomeController < UIViewController
     })
   end
 
-  def button_pressed(sender)
+  def button_pressed(_)
     auth = {
       return_url_scheme: 'fakehost',
       return_url_path: 'fakepath',
