@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     rake (12.3.1)
-    ruby_motion_query (0.5.5)
+    ruby_motion_query (1.7.0)
 
 PLATFORMS
   ruby
